@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import WorkCard from '../components/WorkCard.astro';
+import WorkImage from '../components/WorkImage.astro';
+import { site } from '../data/site';
+import { getProjects } from '../lib/works';
+
+const projects = await getProjects();
+const villa = projects.find((work) => work.entry.id === 'abdulsamad-villa');
+const showroom = projects.find((work) => work.entry.id === 'showroom');
+const office = projects.find((work) => work.entry.id === 'speculative-office');
+
+if (!villa || !showroom || !office) {
+  throw new Error('Featured projects are missing from the content collection.');
+}
+
+const pair = [
+  { work: showroom, aspect: 'aspect-[16/10]' },
+  { work: office, aspect: 'aspect-[4/5]' },
+];
+---
+
+<Base>
+  <div class="mx-auto w-full max-w-7xl px-6 lg:px-margin">
+    <section class="relative min-h-[70vh] overflow-hidden border border-outline-variant bg-surface-container">
+      {
+        villa.images.hero && (
+          <WorkImage
+            image={villa.images.hero}
+            sizes="100vw"
+            priority
+          />
+        )
+      }
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/10"></div>
+      <div class="relative z-10 flex min-h-[70vh] flex-col items-start justify-end p-6 md:p-12">
+        <h1 class="font-headline text-[40px] leading-[44px] font-light tracking-[-0.02em] text-white md:text-[56px] md:leading-[64px]">
+          {site.name}
+        </h1>
+        <p class="mt-3 text-base leading-[26px] text-white md:text-lg">{site.role}</p>
+        <p class="mt-4 max-w-xl text-sm leading-[22px] text-white/90 md:text-base md:leading-[26px]">
+          {site.heroLine}
+        </p>
+        <a
+          href="/projects"
+          class="pointer-events-auto mt-8 inline-block border border-white bg-white px-6 py-3 label-md text-primary transition-none hover:bg-transparent hover:text-white"
+        >
+          View projects
+        </a>
+      </div>
+    </section>
+
+    <section class="mt-16" aria-labelledby="featured-heading">
+      <div class="mb-8 flex items-end justify-between gap-6 border-b border-outline-variant pb-4">
+        <h2 id="featured-heading" class="font-headline text-[28px] leading-9 font-light text-primary md:text-4xl md:leading-[44px]">
+          Featured project
+        </h2>
+        <a href="/projects" class="label-md text-primary transition-none hover:underline">All projects</a>
+      </div>
+      <WorkCard
+        href={villa.href}
+        title={villa.entry.data.title}
+        location={villa.entry.data.location}
+        area={villa.entry.data.area}
+        date={villa.entry.data.date}
+        summary={villa.entry.data.summary}
+        category={villa.entry.data.category}
+        indexLabel="01"
+        image={villa.images.hero}
+        layout="feature"
+      />
+    </section>
+
+    <section class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12" aria-label="Further projects">
+      {
+        pair.map(({ work, aspect }, index) => (
+          <a
+            href={work.href}
+            class:list={[
+              'block border border-outline-variant bg-surface-container-lowest p-4 transition-none hover:border-primary',
+              index === 0 ? 'lg:col-span-7' : 'lg:col-span-5',
+            ]}
+          >
+            <div class:list={['relative overflow-hidden bg-surface-container', aspect]}>
+              {work.images.hero && (
+                <WorkImage image={work.images.hero} sizes={index === 0 ? '(min-width: 1024px) 50vw, 100vw' : '(min-width: 1024px) 35vw, 100vw'} />
+              )}
+            </div>
+            <div class="px-1 pt-4">
+              <p class="label-sm text-secondary">{work.entry.data.category} / {work.entry.data.date}</p>
+              <h3 class="mt-1 font-headline text-lg leading-6 text-primary">{work.entry.data.title}</h3>
+              <p class="mt-1 text-sm leading-[22px] text-secondary">{work.entry.data.location}</p>
+            </div>
+          </a>
+        ))
+      }
+    </section>
+  </div>
+</Base>

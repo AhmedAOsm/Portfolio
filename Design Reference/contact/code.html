@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact — Patricia Johnson</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline-variant": "#cfc4c5",
+            "surface-bright": "#f9f9f9",
+            "tertiary-container": "#1a1c1c",
+            "surface": "#f9f9f9",
+            "secondary-fixed": "#e4e2e2",
+            "on-primary": "#ffffff",
+            "surface-tint": "#5e5e5e",
+            "on-surface": "#1a1c1c",
+            "on-surface-variant": "#4c4546",
+            "on-secondary-fixed-variant": "#464747",
+            "on-error-container": "#93000a",
+            "primary-fixed": "#e2e2e2",
+            "inverse-surface": "#2f3131",
+            "surface-container-high": "#e8e8e8",
+            "error-container": "#ffdad6",
+            "on-background": "#1a1c1c",
+            "secondary-container": "#e1dfdf",
+            "on-primary-container": "#848484",
+            "on-error": "#ffffff",
+            "primary-fixed-dim": "#c6c6c6",
+            "on-primary-fixed-variant": "#474747",
+            "primary-container": "#1b1b1b",
+            "surface-container": "#eeeeee",
+            "on-secondary": "#ffffff",
+            "background": "#f9f9f9",
+            "surface-container-highest": "#e2e2e2",
+            "on-tertiary-container": "#838484",
+            "tertiary": "#000000",
+            "inverse-primary": "#c6c6c6",
+            "on-primary-fixed": "#1b1b1b",
+            "surface-variant": "#e2e2e2",
+            "on-tertiary": "#ffffff",
+            "primary": "#000000",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#dadada",
+            "secondary": "#5e5e5e",
+            "outline": "#7e7576",
+            "inverse-on-surface": "#f0f1f1",
+            "on-secondary-fixed": "#1b1c1c",
+            "tertiary-fixed": "#e2e2e2",
+            "tertiary-fixed-dim": "#c6c6c6",
+            "secondary-fixed-dim": "#c7c6c6",
+            "on-tertiary-fixed-variant": "#454747",
+            "surface-container-low": "#f3f3f4",
+            "error": "#ba1a1a",
+            "on-secondary-container": "#626262",
+            "on-tertiary-fixed": "#1a1c1c"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "4rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "margin": "3rem",
+            "gutter": "2rem",
+            "space-lg": "2rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Space Grotesk"],
+            "body-lg": ["Inter"],
+            "headline-lg-mobile": ["Space Grotesk"],
+            "headline-xl": ["Space Grotesk"],
+            "headline-lg": ["Space Grotesk"],
+            "label-sm": ["Space Grotesk"],
+            "body-md": ["Inter"],
+            "headline-md": ["Space Grotesk"],
+            "label-md": ["Space Grotesk"],
+            "body-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "300" }],
+            "headline-xl": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "300" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.01em", "fontWeight": "300" }],
+            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "400" }],
+            "label-md": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface font-body-lg h-full flex flex-col justify-between selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar Component -->
+<header class="bg-surface dark:bg-surface fixed top-0 left-0 w-full z-50 border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-gutter py-4 max-w-7xl mx-auto">
+<div class="text-headline-sm font-headline-sm font-light tracking-widest text-primary dark:text-inverse-primary">
+        PATRICIA JOHNSON
+      </div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors text-headline-sm font-headline-sm" href="#">Home</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors text-headline-sm font-headline-sm" href="#">About</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors text-headline-sm font-headline-sm" href="#">Projects</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors text-headline-sm font-headline-sm" href="#">Gallery</a>
+<a class="text-primary dark:text-inverse-primary font-medium border-b border-primary pb-1 text-headline-sm font-headline-sm" href="#">Contact</a>
+</nav>
+<button aria-label="Open Navigation Menu" class="md:hidden text-primary focus:outline-none">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-28 pb-space-xl px-gutter max-w-7xl mx-auto w-full">
+<!-- Hero Header Section -->
+<section class="mb-space-xl">
+<div class="border-b border-outline-variant pb-6 mb-8 flex flex-col md:flex-row md:items-end justify-between">
+<div>
+<span class="text-label-md font-label-md text-on-surface-variant block mb-2">05 / INQUIRIES &amp; COLLABORATION</span>
+<h1 class="text-headline-xl font-headline-xl text-primary tracking-tight">GET IN TOUCH</h1>
+</div>
+<p class="text-body-lg text-secondary max-w-md mt-4 md:mt-0">
+          Available for architectural commissions, spatial design consulting, and high-end monographs. Reach out directly or complete the inquiry form below.
+        </p>
+</div>
+</section>
+<!-- Asymmetric Bento Grid: Contact Form & Details -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Contact Form (8 Cols) -->
+<div class="lg:col-span-8 bg-surface-container-lowest p-8 md:p-12 border border-outline-variant">
+<h2 class="text-headline-md font-headline-md text-primary mb-6">PROJECT INQUIRY</h2>
+<form class="space-y-6" onsubmit="event.preventDefault();">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="relative">
+<label class="block text-label-md font-label-md text-on-surface-variant mb-2">FULL NAME</label>
+<input class="w-full bg-transparent border-b border-outline focus:border-primary px-0 py-3 text-body-lg text-primary placeholder:text-outline-variant focus:ring-0 rounded-none transition-colors" placeholder="e.g. Jonathan Vance" type="text"/>
+</div>
+<div class="relative">
+<label class="block text-label-md font-label-md text-on-surface-variant mb-2">EMAIL ADDRESS</label>
+<input class="w-full bg-transparent border-b border-outline focus:border-primary px-0 py-3 text-body-lg text-primary placeholder:text-outline-variant focus:ring-0 rounded-none transition-colors" placeholder="e.g. j.vance@studio.com" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="relative">
+<label class="block text-label-md font-label-md text-on-surface-variant mb-2">PROJECT TYPE</label>
+<select class="w-full bg-transparent border-b border-outline focus:border-primary px-0 py-3 text-body-lg text-primary focus:ring-0 rounded-none transition-colors">
+<option class="bg-surface text-primary">Commercial Architecture</option>
+<option class="bg-surface text-primary">Residential Concept</option>
+<option class="bg-surface text-primary">Urban Installation</option>
+<option class="bg-surface text-primary">Consulting &amp; Curation</option>
+</select>
+</div>
+<div class="relative">
+<label class="block text-label-md font-label-md text-on-surface-variant mb-2">ESTIMATED TIMELINE</label>
+<input class="w-full bg-transparent border-b border-outline focus:border-primary px-0 py-3 text-body-lg text-primary placeholder:text-outline-variant focus:ring-0 rounded-none transition-colors" placeholder="e.g. Q3 2025" type="text"/>
+</div>
+</div>
+<div class="relative pt-2">
+<label class="block text-label-md font-label-md text-on-surface-variant mb-2">PROJECT BRIEF / MESSAGE</label>
+<textarea class="w-full bg-transparent border-b border-outline focus:border-primary px-0 py-3 text-body-lg text-primary placeholder:text-outline-variant focus:ring-0 rounded-none transition-colors resize-none" placeholder="Describe the scope, spatial constraints, and architectural vision..." rows="4"></textarea>
+</div>
+<div class="pt-4 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<input class="w-4 h-4 rounded-none border-outline text-primary focus:ring-0" id="nda" type="checkbox"/>
+<label class="text-body-sm text-secondary" for="nda">Require mutual non-disclosure agreement prior to review</label>
+</div>
+<button class="bg-primary text-on-primary px-8 py-4 text-label-md font-label-md uppercase tracking-wider hover:bg-surface-tint transition-all duration-200" type="submit">
+              SUBMIT INQUIRY
+            </button>
+</div>
+</form>
+</div>
+<!-- Right Column: Metadata & Location (4 Cols) -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Direct Contact Card -->
+<div class="bg-surface-container-lowest p-8 border border-outline-variant">
+<span class="text-label-md font-label-md text-on-surface-variant block mb-4">DIRECT CHANNELS</span>
+<ul class="space-y-6">
+<li class="flex items-start space-x-4 pb-4 border-b border-outline-variant">
+<span class="material-symbols-outlined text-primary text-xl mt-1">mail</span>
+<div>
+<span class="text-label-sm font-label-sm text-secondary block">ELECTRONIC MAIL</span>
+<a class="text-body-md text-primary font-medium hover:underline" href="mailto:YOURINFO@EXAMPLE.COM">YOURINFO@EXAMPLE.COM</a>
+</div>
+</li>
+<li class="flex items-start space-x-4 pb-4 border-b border-outline-variant">
+<span class="material-symbols-outlined text-primary text-xl mt-1">call</span>
+<div>
+<span class="text-label-sm font-label-sm text-secondary block">DIRECT TELEPHONE</span>
+<a class="text-body-md text-primary font-medium hover:underline" href="tel:5554320765">(555) 432-0765</a>
+</div>
+</li>
+<li class="flex items-start space-x-4">
+<span class="material-symbols-outlined text-primary text-xl mt-1">location_on</span>
+<div>
+<span class="text-label-sm font-label-sm text-secondary block">STUDIO LOCATION</span>
+<span class="text-body-md text-primary font-medium">123 STREET, CITY, STATE 43478</span>
+</div>
+</li>
+</ul>
+</div>
+<!-- Architectural Image Feature Card -->
+<div class="relative overflow-hidden border border-outline-variant group">
+<div class="bg-cover bg-center w-full h-64 grayscale contrast-125 transition-transform duration-500 group-hover:scale-105" data-alt="A striking monochrome architectural image of a minimalist high-rise facade featuring stark geometric lines, deep shadows, and clean concrete panels under high-key daylight. The image embodies a sophisticated, editorial art direction with high contrast black and white tones, reflecting rigorous modern design principles." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuApO6ay3nbxatQOAYAxpadtOKaYTMR-AMpzZwYZNCEzUDXLgBWBg232Jx_Lk3YK65vsAjDqO3vsT4NLsZu-uY3PvR01A7LZv92ndsYnZpmUlUd4TS7mxuCnM-Wz4uKfZK_nsjhuag5Pa0uon7T8dgi8kdmFTz93QJfN_peuAuJW3QcEJENeEyxtQvYiQlryvI2rr1zGuSJRvDVleFcRJZMxkAwtpOhScPGJNFKGlubJPZOZyUdN4haM')"></div>
+<div class="absolute inset-0 bg-primary/20 pointer-events-none"></div>
+<div class="absolute bottom-4 left-4 right-4 bg-surface/90 backdrop-blur-sm p-4 border border-outline-variant">
+<span class="text-label-sm font-label-sm text-primary block">STUDIO HQ</span>
+<span class="text-body-sm text-secondary">Metropolitan Design District, Studio 4B</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="bg-surface dark:bg-surface w-full border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-gutter py-margin max-w-7xl mx-auto space-y-4 md:space-y-0">
+<div class="text-headline-sm font-headline-sm font-light text-primary dark:text-inverse-primary">
+        © 2024 PATRICIA JOHNSON. ALL RIGHTS RESERVED.
+      </div>
+<nav class="flex flex-wrap justify-center gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Projects</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-sm font-label-sm" href="#">Gallery</a>
+<a class="text-primary font-medium text-label-sm font-label-sm" href="#">Contact</a>
+</nav>
+</div>
+</footer>
+</body></html>

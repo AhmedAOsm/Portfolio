@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #f9f9f9;
+  --color-surface-dim: #dadada;
+  --color-surface-bright: #f9f9f9;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f3f4;
+  --color-surface-container: #eeeeee;
+  --color-surface-container-high: #e8e8e8;
+  --color-surface-container-highest: #e2e2e2;
+  --color-on-surface: #1a1c1c;
+  --color-on-surface-variant: #4c4546;
+  --color-inverse-surface: #2f3131;
+  --color-inverse-on-surface: #f0f1f1;
+  --color-outline: #7e7576;
+  --color-outline-variant: #cfc4c5;
+  --color-primary: #000000;
+  --color-on-primary: #ffffff;
+  --color-secondary: #5e5e5e;
+  --color-background: #f9f9f9;
+  --color-on-background: #1a1c1c;
+
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --spacing-gutter: 2rem;
+  --spacing-margin: 3rem;
+}
+
+@utility label-md {
+  font-family: var(--font-headline);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+@utility label-sm {
+  font-family: var(--font-headline);
+  font-size: 10px;
+  line-height: 14px;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 26px;
+}
+
+::selection {
+  background: #000000;
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 1px solid #000000;
+  outline-offset: 2px;
+}
+
+img {
+  filter: none;
+}
+
+.prose-work p + p {
+  margin-top: 1.25rem;
+}
+
+.prose-work h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-headline);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+.prose-work ul {
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.prose-work li + li {
+  margin-top: 0.35rem;
+}

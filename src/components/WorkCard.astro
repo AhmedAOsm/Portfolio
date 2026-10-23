@@ -1,0 +1,130 @@
+---
+import Plate from './Plate.astro';
+import WorkImage from './WorkImage.astro';
+import type { WorkImage as WorkImageData } from '../lib/images';
+
+interface Props {
+  href: string;
+  title: string;
+  location: string;
+  area: string;
+  date: string;
+  summary?: string;
+  category?: string;
+  indexLabel: string;
+  image?: WorkImageData;
+  layout?: 'feature' | 'row' | 'tile';
+  reverse?: boolean;
+}
+
+const {
+  href,
+  title,
+  location,
+  area,
+  date,
+  summary,
+  category,
+  indexLabel,
+  image,
+  layout = 'row',
+  reverse = false,
+} = Astro.props;
+---
+
+{
+  layout === 'tile' ? (
+    <a
+      href={href}
+      class="group block border border-outline-variant bg-surface-container-lowest p-4 transition-none hover:border-primary"
+    >
+      <div class="relative mb-4 aspect-[4/3] overflow-hidden bg-surface-container">
+        {image ? (
+          <WorkImage image={image} sizes="(min-width: 768px) 30vw, 100vw" />
+        ) : (
+          <div class="absolute inset-0">
+            <Plate index={indexLabel} title={title} location={location} area={area} />
+          </div>
+        )}
+      </div>
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <span class="label-sm text-secondary">{category}</span>
+          <h3 class="mt-1 font-headline text-lg font-normal leading-6 text-primary">{title}</h3>
+          <p class="mt-1 text-sm leading-[22px] text-secondary">{location}</p>
+        </div>
+        <span class="label-sm shrink-0 text-on-surface-variant">{date}</span>
+      </div>
+    </a>
+  ) : layout === 'feature' ? (
+    <article class="grid items-stretch gap-8 border border-outline-variant bg-surface-container-lowest p-6 md:p-8 lg:grid-cols-12">
+      <a href={href} class="relative block h-full min-h-72 overflow-hidden bg-surface-container lg:col-span-7">
+        {image ? (
+          <WorkImage image={image} sizes="(min-width: 1024px) 55vw, 100vw" priority />
+        ) : (
+          <div class="absolute inset-0">
+            <Plate index={indexLabel} title={title} location={location} area={area} />
+          </div>
+        )}
+      </a>
+      <div class="flex flex-col justify-between gap-8 lg:col-span-5">
+        <div>
+          <p class="label-md text-secondary">{category}</p>
+          <h2 class="mt-2 font-headline text-2xl font-normal leading-8 text-primary md:text-4xl md:leading-[44px] md:font-light">
+            <a href={href}>{title}</a>
+          </h2>
+          {summary && <p class="mt-4 text-base leading-[26px] text-on-surface-variant">{summary}</p>}
+        </div>
+        <div class="border-t border-outline-variant pt-4">
+          <p class="text-sm leading-[22px] text-secondary">{location}</p>
+          <p class="text-sm leading-[22px] text-secondary">{area} · {date}</p>
+          <a
+            href={href}
+            class="mt-6 inline-block border border-primary bg-primary px-6 py-3 label-md text-on-primary transition-none hover:bg-transparent hover:text-primary"
+          >
+            View project
+          </a>
+        </div>
+      </div>
+    </article>
+  ) : (
+    <article class="border border-outline-variant bg-surface-container-lowest p-6 md:p-8">
+      <div class="grid items-start gap-8 lg:grid-cols-12">
+        <a
+          href={href}
+          class:list={[
+            'relative block aspect-[16/10] overflow-hidden bg-surface-container lg:col-span-7',
+            reverse && 'lg:order-2',
+          ]}
+        >
+          {image ? (
+            <WorkImage image={image} sizes="(min-width: 1024px) 50vw, 100vw" />
+          ) : (
+            <div class="absolute inset-0">
+              <Plate index={indexLabel} title={title} location={location} area={area} />
+            </div>
+          )}
+        </a>
+        <div class:list={['flex flex-col justify-between gap-8 lg:col-span-5', reverse && 'lg:order-1']}>
+          <div>
+            <p class="label-sm text-secondary">{indexLabel} / {date}</p>
+            <h2 class="mt-2 font-headline text-[28px] leading-9 font-light tracking-[-0.01em] text-primary md:text-4xl md:leading-[44px]">
+              <a href={href}>{title}</a>
+            </h2>
+            {summary && <p class="mt-4 text-sm leading-[22px] text-on-surface-variant">{summary}</p>}
+          </div>
+          <div class="space-y-3 border-t border-outline-variant pt-4">
+            <p class="text-sm leading-[22px]">{location}</p>
+            <p class="text-sm leading-[22px] text-secondary">{area}</p>
+            <a
+              href={href}
+              class="inline-block border border-primary bg-transparent px-6 py-2 label-md text-primary transition-none hover:bg-primary hover:text-on-primary"
+            >
+              View project
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  )
+}

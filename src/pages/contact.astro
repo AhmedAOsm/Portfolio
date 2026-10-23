@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+
+<Base title="Contact" description="Contact Ahmed Ayman by email, telephone, or WhatsApp.">
+  <div class="mx-auto w-full max-w-7xl px-6 pb-8 lg:px-margin">
+    <header class="mb-16 flex flex-col justify-between gap-6 border-b border-outline-variant pb-8 md:flex-row md:items-end">
+      <div>
+        <p class="label-md mb-2 text-on-surface-variant">Inquiries</p>
+        <h1 class="font-headline text-[40px] leading-none font-light tracking-[-0.02em] text-primary md:text-[56px] md:leading-[64px]">
+          Get in touch
+        </h1>
+      </div>
+      <p class="max-w-md text-base leading-[26px] text-secondary">
+        Write directly, or send a note through the form. It opens in your email application, addressed to {site.name}.
+      </p>
+    </header>
+
+    <div class="grid items-start gap-8 lg:grid-cols-12">
+      <section class="border border-outline-variant bg-surface-container-lowest p-8 md:p-12 lg:col-span-8">
+        <h2 class="font-headline text-2xl leading-8 text-primary">Project inquiry</h2>
+        <form id="inquiry" class="mt-8 space-y-8">
+          <div class="grid gap-8 md:grid-cols-2">
+            <div>
+              <label for="name" class="label-md text-on-surface-variant">Full name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                autocomplete="name"
+                class="mt-2 w-full rounded-none border-0 border-b border-outline bg-transparent px-0 py-3 text-base text-primary focus:border-primary focus:ring-0"
+              />
+            </div>
+            <div>
+              <label for="email" class="label-md text-on-surface-variant">Email address</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                autocomplete="email"
+                class="mt-2 w-full rounded-none border-0 border-b border-outline bg-transparent px-0 py-3 text-base text-primary focus:border-primary focus:ring-0"
+              />
+            </div>
+          </div>
+          <div>
+            <label for="message" class="label-md text-on-surface-variant">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="mt-2 w-full resize-y rounded-none border-0 border-b border-outline bg-transparent px-0 py-3 text-base text-primary focus:border-primary focus:ring-0"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="border border-primary bg-primary px-8 py-4 label-md text-on-primary transition-none hover:bg-transparent hover:text-primary"
+          >
+            Send inquiry
+          </button>
+        </form>
+      </section>
+
+      <aside class="border border-outline-variant bg-surface-container-lowest p-8 lg:col-span-4">
+        <p class="label-md text-on-surface-variant">Direct channels</p>
+        <ul class="mt-6 space-y-6">
+          <li class="border-b border-outline-variant pb-4">
+            <span class="label-sm text-secondary">Email</span>
+            <a href={`mailto:${site.email}`} class="mt-1 block text-sm leading-[22px] text-primary hover:underline">{site.email}</a>
+          </li>
+          <li class="border-b border-outline-variant pb-4">
+            <span class="label-sm text-secondary">Telephone</span>
+            <a href={`tel:${site.phone}`} class="mt-1 block text-sm leading-[22px] text-primary hover:underline">{site.phoneDisplay}</a>
+          </li>
+          <li>
+            <span class="label-sm text-secondary">WhatsApp</span>
+            <a href={site.whatsapp} class="mt-1 block text-sm leading-[22px] text-primary hover:underline">{site.phoneDisplay}</a>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<script define:vars={{ email: site.email }}>
+  const form = document.querySelector('#inquiry');
+  form?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!(form instanceof HTMLFormElement)) return;
+    const data = new FormData(form);
+    const name = String(data.get('name') ?? '').trim();
+    const from = String(data.get('email') ?? '').trim();
+    const message = String(data.get('message') ?? '').trim();
+    const body = [`Name: ${name}`, `Email: ${from}`, '', message].join('\n');
+    const href = `mailto:${email}?subject=${encodeURIComponent(`Project inquiry from ${name}`)}&body=${encodeURIComponent(body)}`;
+    window.location.href = href;
+  });
+</script>

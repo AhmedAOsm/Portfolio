@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import type { WorkImage } from '../lib/images';
+
+interface Props {
+  image: WorkImage;
+  fit?: 'cover' | 'natural';
+  sizes?: string;
+  priority?: boolean;
+}
+
+const { image, fit = 'cover', sizes = '100vw', priority = false } = Astro.props;
+---
+
+{
+  fit === 'cover' ? (
+    <Image
+      src={image.src}
+      alt={image.alt}
+      widths={[640, 960, 1280, 1600]}
+      sizes={sizes}
+      loading={priority ? 'eager' : 'lazy'}
+      decoding="async"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+  ) : (
+    <Image
+      src={image.src}
+      alt={image.alt}
+      widths={[800, 1400, 2000]}
+      sizes={sizes}
+      loading={priority ? 'eager' : 'lazy'}
+      decoding="async"
+      class="h-auto w-full"
+    />
+  )
+}

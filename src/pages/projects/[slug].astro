@@ -1,0 +1,28 @@
+---
+import Base from '../../layouts/Base.astro';
+import WorkDetail from '../../components/WorkDetail.astro';
+import { getProjects } from '../../lib/works';
+
+export async function getStaticPaths() {
+  const projects = await getProjects();
+  return projects.map((work) => ({ params: { slug: work.entry.id } }));
+}
+
+const { slug } = Astro.params;
+const projects = await getProjects();
+const index = projects.findIndex((work) => work.entry.id === slug);
+const work = projects[index];
+
+if (!work) {
+  throw new Error(`Unknown project: ${slug}`);
+}
+---
+
+<Base title={work.entry.data.title} description={work.entry.data.summary}>
+  <WorkDetail
+    work={work}
+    previous={projects[index - 1]}
+    next={projects[index + 1]}
+    indexLabel={`Project ${String(work.entry.data.order).padStart(2, '0')}`}
+  />
+</Base>

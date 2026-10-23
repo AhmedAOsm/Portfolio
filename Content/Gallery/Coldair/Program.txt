@@ -1,0 +1,14 @@
+Program
+Coldair is a refrigerators manufactuer’s company. The competition was to design their new administrative building (Ground +3) which consists of: 
+Ground Floor: reception, showroom, staff cafeteria, kitchen, and toilets.
+First Floor: Private and open-plan offices and meeting room.
+Second Floor: Private and open-plan offices and two meeting rooms.
+third Floor: Training center, open plan offices
+Each floor has a small kitchen and toilets.
+
+Contribution to the project: 
+I was contributing to this project as part of Abubakr Engineering Company. The architectural design team consisted of three architects. I was responsible for the following:
+- Producing the conceptual sketches, which was chosen to be the base of the design.
+- Creating the basic geometry of the building considering the climate, view & site regulations
+- Designing the facade taking into consideration environmental and aesthetic aspects.
+- Creating the 3d model and producing all the renders.

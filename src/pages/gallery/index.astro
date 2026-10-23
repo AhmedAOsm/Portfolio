@@ -1,0 +1,42 @@
+---
+import Base from '../../layouts/Base.astro';
+import WorkCard from '../../components/WorkCard.astro';
+import { getGallery } from '../../lib/works';
+
+const gallery = await getGallery();
+---
+
+<Base title="Gallery" description="Further architectural studies by Ahmed Ayman.">
+  <div class="mx-auto w-full max-w-7xl px-6 pb-16 lg:px-margin">
+    <header class="mb-12 flex flex-col items-start justify-between gap-6 border-b border-outline-variant pb-8 md:flex-row md:items-end">
+      <div>
+        <p class="label-md text-secondary">Visual index</p>
+        <h1 class="mt-2 font-headline text-[28px] leading-9 font-light text-primary md:text-4xl md:leading-[44px]">
+          Architectural gallery
+        </h1>
+      </div>
+      <p class="max-w-md text-sm leading-[22px] text-on-surface-variant">
+        Studies and competitions alongside the selected projects, including Coldair and residential work in Port Sudan and Khartoum.
+      </p>
+    </header>
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3 md:pb-8">
+      {
+        gallery.map((work, index) => (
+          <div class:list={[index % 3 === 1 && 'md:translate-y-8']}>
+            <WorkCard
+              href={work.href}
+              title={work.entry.data.title}
+              location={work.entry.data.location}
+              area={work.entry.data.area}
+              date={work.entry.data.date}
+              category={work.entry.data.category}
+              indexLabel={String(work.entry.data.order).padStart(2, '0')}
+              image={work.images.hero}
+              layout="tile"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Base>

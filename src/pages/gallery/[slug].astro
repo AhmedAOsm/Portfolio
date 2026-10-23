@@ -1,0 +1,28 @@
+---
+import Base from '../../layouts/Base.astro';
+import WorkDetail from '../../components/WorkDetail.astro';
+import { getGallery } from '../../lib/works';
+
+export async function getStaticPaths() {
+  const gallery = await getGallery();
+  return gallery.map((work) => ({ params: { slug: work.entry.id } }));
+}
+
+const { slug } = Astro.params;
+const gallery = await getGallery();
+const index = gallery.findIndex((work) => work.entry.id === slug);
+const work = gallery[index];
+
+if (!work) {
+  throw new Error(`Unknown gallery item: ${slug}`);
+}
+---
+
+<Base title={work.entry.data.title} description={work.entry.data.summary}>
+  <WorkDetail
+    work={work}
+    previous={gallery[index - 1]}
+    next={gallery[index + 1]}
+    indexLabel={`Study ${String(work.entry.data.order).padStart(2, '0')}`}
+  />
+</Base>
