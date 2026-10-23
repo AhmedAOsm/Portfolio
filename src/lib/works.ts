@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { withBase } from './base';
 import { imagesFor, type WorkImages } from './images';
 
 type ProjectEntry = CollectionEntry<'projects'>;
@@ -12,11 +13,11 @@ export type Work = {
 };
 
 function withImages(entry: ProjectEntry | GalleryEntry, kind: Work['kind']): Work {
-  const base = kind === 'project' ? '/projects' : '/gallery';
+  const section = kind === 'project' ? 'projects' : 'gallery';
   return {
     entry,
     images: imagesFor(entry.data.folder, entry.data.title),
-    href: `${base}/${entry.id}`,
+    href: withBase(`/${section}/${entry.id}`),
     kind,
   };
 }

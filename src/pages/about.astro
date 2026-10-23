@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { site } from '../data/site';
+import { withBase } from '../lib/base';
 import { getChronology } from '../lib/works';
 
 const works = await getChronology();
@@ -97,7 +98,7 @@ const principles = [
       </div>
       <div>
         <a
-          href="/contact"
+          href={withBase('/contact')}
           class="inline-block border border-primary bg-primary px-8 py-4 label-md text-on-primary transition-none hover:bg-transparent hover:text-primary"
         >
           Get in touch

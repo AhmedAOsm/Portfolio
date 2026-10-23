@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import WorkCard from '../components/WorkCard.astro';
 import WorkImage from '../components/WorkImage.astro';
 import { site } from '../data/site';
+import { withBase } from '../lib/base';
 import { getProjects } from '../lib/works';
 
 const projects = await getProjects();
@@ -42,7 +43,7 @@ const pair = [
           {site.heroLine}
         </p>
         <a
-          href="/projects"
+          href={withBase('/projects')}
           class="pointer-events-auto mt-8 inline-block border border-white bg-white px-6 py-3 label-md text-primary transition-none hover:bg-transparent hover:text-white"
         >
           View projects
@@ -55,7 +56,7 @@ const pair = [
         <h2 id="featured-heading" class="font-headline text-[28px] leading-9 font-light text-primary md:text-4xl md:leading-[44px]">
           Featured project
         </h2>
-        <a href="/projects" class="label-md text-primary transition-none hover:underline">All projects</a>
+        <a href={withBase('/projects')} class="label-md text-primary transition-none hover:underline">All projects</a>
       </div>
       <WorkCard
         href={villa.href}
